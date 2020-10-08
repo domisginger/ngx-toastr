@@ -182,7 +182,7 @@ export class ToastrService {
    */
   findDuplicate(title = '', message = '', resetOnDuplicate: boolean, countDuplicates: boolean) {
     const { includeTitleDuplicates } = this.toastrConfig;
-    
+
     for (const toast of this.toasts) {
       const hasDuplicateTitle = includeTitleDuplicates && toast.title === title;
       if ((!includeTitleDuplicates || hasDuplicateTitle) && toast.message === message) {
