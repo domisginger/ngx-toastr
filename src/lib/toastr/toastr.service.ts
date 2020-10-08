@@ -297,6 +297,7 @@ export class ToastrService {
     toastRef.componentInstance = (portal as any)._component;
     const ins: ActiveToast<any> = {
       toastId: this.index,
+      title: title || '',
       message: message || '',
       toastRef,
       onShown: toastRef.afterActivate(),
