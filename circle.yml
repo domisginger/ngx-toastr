@@ -38,6 +38,12 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run semantic-release
+      - run:
+          name: Compress Artifacts
+          command: tar -cvzf dist.tar /home/circleci/project/dist
+      - store_artifacts:
+          path: dist.tar
+          destination: dist
 
 workflows:
   version: 2
@@ -46,9 +52,5 @@ workflows:
     jobs:
       - test
       - release:
-          filters:
-            branches:
-              only:
-                - master
           requires:
             - test
